@@ -264,12 +264,12 @@ action:
           - condition: trigger
             id: 6_hold
         sequence:
-          !input action_61_hold
+          !input action_6_hold
       - conditions:
           - condition: trigger
             id: 6_single
         sequence:
-          !input action_61_single
+          !input action_6_single
       - conditions:
           - condition: trigger
             id: 6_double
