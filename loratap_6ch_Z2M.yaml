@@ -1,5 +1,5 @@
 blueprint:
-  name: LoraTap-6-Channel-Switch-Blueprint
+  name: LoraTap 6 Channel Switch
   description: ''
   domain: automation
   input:
