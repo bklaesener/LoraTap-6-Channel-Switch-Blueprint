@@ -4,7 +4,7 @@ blueprint:
   domain: automation
   input:
     switch_action:
-      name: switch MQTT topic
+      name: Switch MQTT topic
       description: 'type in your switch MQTT topic (i.e. zigbee2mqtt/Bedroom Button Panel/action)'
       selector:
         text:
@@ -98,6 +98,7 @@ blueprint:
       description: select action to run when you hold Button 6
       selector:
         action:
+
 trigger:
   - platform: mqtt
     topic: !input switch_action
@@ -171,6 +172,7 @@ trigger:
     topic: !input switch_action
     payload: 6_hold
     id: 6_hold
+
 action:
   - choose:
       - conditions:
