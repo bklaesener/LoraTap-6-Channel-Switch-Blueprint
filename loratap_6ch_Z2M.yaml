@@ -1,0 +1,282 @@
+blueprint:
+  name: LoraTap-6-Channel-Switch-Blueprint
+  description: ''
+  domain: automation
+  input:
+    switch_action:
+      name: switch MQTT topic
+      description: 'type in your switch MQTT topic (i.e. zigbee2mqtt/Bedroom Button Panel/action)'
+      selector:
+        text:
+    action_1_single:
+      name: 1_single
+      description: select action to run when you single press Button 1
+      selector:
+        action:
+    action_1_double:
+      name: 1_double
+      description: select action to run when you double press Button 1
+      selector:
+        action:
+    action_1_hold:
+      name: 1_hold
+      description: select action to run when you hold Button 1
+      selector:
+        action:
+    action_2_single:
+      name: 2_single
+      description: select action to run when you single press Button 2
+      selector:
+        action:
+    action_2_double:
+      name: 2_double
+      description: select action to run when you double press Button 2
+      selector:
+        action:
+    action_2_hold:
+      name: 2_hold
+      description: select action to run when you hold Button 2
+      selector:
+        action:
+    action_3_single:
+      name: 3_single
+      description: select action to run when you single press Button 3
+      selector:
+        action:
+    action_3_double:
+      name: 3_double
+      description: select action to run when you double press Button 3
+      selector:
+        action:
+    action_3_hold:
+      name: 3_hold
+      description: select action to run when you hold Button 3
+      selector:
+        action:
+    action_4_single:
+      name: 4_single
+      description: select action to run when you single press Button 4
+      selector:
+        action:
+    action_4_double:
+      name: 4_double
+      description: select action to run when you double press Button 4
+      selector:
+        action:
+    action_4_hold:
+      name: 4_hold
+      description: select action to run when you hold Button 4
+      selector:
+        action:
+    action_5_single:
+      name: 5_single
+      description: select action to run when you single press Button 5
+      selector:
+        action:
+    action_5_double:
+      name: 5_double
+      description: select action to run when you double press Button 5
+      selector:
+        action:
+    action_5_hold:
+      name: 5_hold
+      description: select action to run when you hold Button 5
+      selector:
+        action:
+    action_6_single:
+      name: 6_single
+      description: select action to run when you single press Button 6
+      selector:
+        action:
+    action_6_double:
+      name: 6_double
+      description: select action to run when you double press Button 6
+      selector:
+        action:
+    action_6_hold:
+      name: 6_hold
+      description: select action to run when you hold Button 6
+      selector:
+        action:
+trigger:
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 1_single
+    id: 1_single
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 2_single
+    id: 2_single
+  - platform: mqtt
+    topic: !input switch_action
+    id: 3_single
+    payload: 3_single
+  - platform: mqtt
+    topic: !input switch_action
+    id: 4_single
+    payload: 4_single
+  - platform: mqtt
+    topic: !input switch_action
+    id: 5_single
+    payload: 5_single
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 6_single
+    id: 6_single
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 1_double
+    id: 1_double
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 2_double
+    id: 2_double
+  - platform: mqtt
+    topic: !input switch_action
+    id: 3_double
+    payload: 3_double
+  - platform: mqtt
+    topic: !input switch_action
+    id: 4_double
+    payload: 4_double
+  - platform: mqtt
+    topic: !input switch_action
+    id: 5_double
+    payload: 5_double
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 6_double
+    id: 6_double
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 1_hold
+    id: 1_hold
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 2_hold
+    id: 2_hold
+  - platform: mqtt
+    topic: !input switch_action
+    id: 3_hold
+    payload: 3_hold
+  - platform: mqtt
+    topic: !input switch_action
+    id: 4_hold
+    payload: 4_hold
+  - platform: mqtt
+    topic: !input switch_action
+    id: 5_hold
+    payload: 5_hold
+  - platform: mqtt
+    topic: !input switch_action
+    payload: 6_hold
+    id: 6_hold
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: 1_single
+        sequence:
+          !input action_1_single
+      - conditions:
+          - condition: trigger
+            id: 1_double
+        sequence:
+          !input action_1_double
+      - conditions:
+          - condition: trigger
+            id: 1_hold
+        sequence:
+          !input action_1_hold
+      - conditions:
+          - condition: trigger
+            id: 2_single
+        sequence:
+          !input action_2_single
+      - conditions:
+          - condition: trigger
+            id: 2_double
+        sequence:
+          !input action_2_double
+      - conditions:
+          - condition: trigger
+            id: 2_hold
+        sequence:
+          !input action_2_hold
+      - conditions:
+          - condition: trigger
+            id: 3_single
+        sequence:
+          !input action_3_single
+      - conditions:
+          - condition: trigger
+            id: 3_double
+        sequence:
+          !input action_3_double
+      - conditions:
+          - condition: trigger
+            id: 3_hold
+        sequence:
+          !input action_3_hold
+      - conditions:
+          - condition: trigger
+            id: 4_single
+        sequence:
+          !input action_4_single
+      - conditions:
+          - condition: trigger
+            id: 4_double
+        sequence:
+          !input action_4_double
+      - conditions:
+          - condition: trigger
+            id: 4_hold
+        sequence:
+          !input action_4_hold
+      - conditions:
+          - condition: trigger
+            id: 5_single
+        sequence:
+          !input action_5_single
+      - conditions:
+          - condition: trigger
+            id: 5_double
+        sequence:
+          !input action_5_double
+      - conditions:
+          - condition: trigger
+            id: 5_hold
+        sequence:
+          !input action_5_hold
+      - conditions:
+          - condition: trigger
+            id: 6_single
+        sequence:
+          !input action_6_single
+      - conditions:
+          - condition: trigger
+            id: 6_double
+        sequence:
+          !input action_6_double
+      - conditions:
+          - condition: trigger
+            id: 6_hold
+        sequence:
+          !input action_61_hold
+      - conditions:
+          - condition: trigger
+            id: 6_single
+        sequence:
+          !input action_61_single
+      - conditions:
+          - condition: trigger
+            id: 6_double
+        sequence:
+          !input action_6_double
+      - conditions:
+          - condition: trigger
+            id: 6_hold
+        sequence:
+          !input action_6_hold
+    default: []
+mode: restart
